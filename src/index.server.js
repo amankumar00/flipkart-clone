@@ -4,7 +4,12 @@ const env = require('dotenv');
 const app = express();
 const mongoose = require('mongoose');
 
+// routes
+const userRoutes = require('./routes/user')
+
 env.config();
+
+// https://www.youtube.com/watch?v=kXfRQ0NiyLI&list=PLB_Wd4-5SGAYsxD4JGaVdXll3PnoyI-AM&index=3&ab_channel=RizwanKhan
 
 // mongo connection
 // mongodb+srv://root:<password>@cluster0.ynbz1u8.mongodb.net/?retryWrites=true&w=majority
@@ -15,17 +20,7 @@ mongoose.connect(
 });
 app.use(bodyParser());
 
-app.get('/', (req, res, next)=>{
-    res.status(200).json({
-        message: 'Hello from server'
-    });
-});
 
-app.post('/data', (req, res, next)=>{
-    res.status(200).json({
-        message: req.body
-    });
-});
 
 
 
