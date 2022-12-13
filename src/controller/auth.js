@@ -1,7 +1,7 @@
 const { ResultWithContext } = require('express-validator/src/chain/context-runner-impl.js');
 const User = require('../models/user.js')
 const jwt = require('jsonwebtoken')
-
+const {validationResult} = require('express-validator');
 exports.signup = (req,res) =>{
     User.findOne({email: req.body.email}).exec((error,user)=>{
         if(user)

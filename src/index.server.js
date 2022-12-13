@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const env = require('dotenv');
 const app = express();
 const mongoose = require('mongoose');
-
 // routes
 const authRoutes = require('./routes/auth')
 const adminRoutes = require('./routes/admin/auth')
@@ -22,9 +21,9 @@ mongoose.connect(
 });
 app.use(bodyParser());
 
-// this is a middleware
+// These are middlewares
 app.use('/api', authRoutes);
-app.use('/api',adminRoutes);
+app.use('/api', adminRoutes);
 
 // listener
 app.listen(process.env.PORT, ()=>{
