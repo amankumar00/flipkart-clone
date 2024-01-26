@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const env = require('dotenv');
 const app = express();
 const mongoose = require('mongoose');
@@ -19,7 +18,7 @@ mongoose.connect(
     ).then(()=>{
     console.log("database connected");
 });
-app.use(bodyParser());
+app.use(express.json());
 
 // These are middlewares
 app.use('/api', authRoutes);
